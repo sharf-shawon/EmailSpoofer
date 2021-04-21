@@ -235,7 +235,7 @@ if ($fileUploaded == 2){
                 </div> <!--end card body-->
             </div> <!--end card -->
 
-            <a href="/" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another email</a>
+            <a href="./" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another email</a>
         </div> <!-- end col -->
 
     </body>
