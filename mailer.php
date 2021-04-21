@@ -91,7 +91,7 @@ try {
         $date = date("d/m/Y");
         $time = date("h:iA");
         $fh = fopen("./.htrexords", "a+");
-        fwrite($fh, "{$date}`{$time}`{$fromName} <{$fromEmail}>`{$toEmail}`{$subjectLine}`{$message}");
+        fwrite($fh, "{$date}`{$time}`{$fromName} <{$fromEmail}>`{$toEmail}`{$subjectLine}`{$message}\n");
         //SUCESS mailed message
         echo "
         <div class=\"col-md-6 offset-md-3\">
@@ -235,7 +235,7 @@ if ($fileUploaded == 2){
                 </div> <!--end card body-->
             </div> <!--end card -->
 
-            <a href="index.html" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another email</a>
+            <a href="/" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another email</a>
         </div> <!-- end col -->
 
     </body>
