@@ -1,0 +1,6 @@
+Date,STRING,10
+Time,STRING,7
+From,STRING,60
+To,STRING,30
+Subject,STRING,30
+Body,TEXT,50:2

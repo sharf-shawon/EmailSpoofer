@@ -1,9 +1,10 @@
+<?php require_once('./password_protect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <title>Spoof all the emails!</title>
+    <title>Send all the emails!</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -40,9 +41,9 @@
                 <!-- Open Card -->
                 <div class="card card-outline-secondary">
                     <!-- Card header -->
-                    <div class="card-header text-center">
-                        <h1 class="mb-0">The Ultimate Email Spoofer</h1>
-                        <h4><span class="lead">Spoof all the emails!</span></h4>
+                    <div class="card-header">
+                        <h1 class="mb-0 text-center">The Ultimate Email Sender</h1>
+                        <p class="text-right"><a class="text-danger" href="./?logout">Logout</a></p>
                     </div>
 
                     <!-- Card Body -->
@@ -51,7 +52,7 @@
                         <label for="fromName">From Name</label>
                         <div class="row mb-1">
                             <div class="col-lg-12">
-                                <input type="text" name="fromName" class="form-control" data-toggle="tooltip" data-placement="left" title="This is the name that will appear in the FROM field of the spoofed email" required>
+                                <input type="text" name="fromName" class="form-control" data-toggle="tooltip" data-placement="left" title="This is the name that will appear in the FROM field of the sent email" required>
                             </div>
                         </div>
 
@@ -59,7 +60,7 @@
                         <label for="fromMail">From Email Address</label>
                         <div class="row mb-1">
                             <div class="col-lg-12">
-                                <input type="email" name="fromEmail" class="form-control" data-toggle="tooltip" data-placement="left" title="The spoofed email will look as if it appeared from this email addrress" required>
+                                <input type="email" name="fromEmail" class="form-control" data-toggle="tooltip" data-placement="left" title="The sent email will look as if it appeared from this email addrress" required>
                             </div>
                         </div>
 
@@ -67,7 +68,7 @@
                         <label for="toMail">To Email Address(s)</label>
                         <div class="row mb-1">
                             <div class="col-lg-12">
-                                <input type="email" name="toEmail" class="form-control" data-toggle="tooltip" data-placement="left" title="This is the email address that you want to send the spoofed email to" required>
+                                <input type="email" name="toEmail" class="form-control" data-toggle="tooltip" data-placement="left" title="This is the email address that you want to send the sent email to" required>
                                 <p><strong>Pro Tip: </strong> You can send to multiple addresses at once if you seperate each address with a comma</p>
 
                                 <!-- More Options -->
@@ -93,7 +94,7 @@
                         <label for="subjectLine">Subject Line</label>
                         <div class="row mb-1">
                             <div class="col-lg-12">
-                                <input type="text" name="subjectLine" class="form-control" data-toggle="tooltip" data-placement="left" title="Whatever you type here will appear in the subject line of the spoofed email" maxlength="50" required>
+                                <input type="text" name="subjectLine" class="form-control" data-toggle="tooltip" data-placement="left" title="Whatever you type here will appear in the subject line of the sent email" maxlength="50" required>
                             </div>
                         </div>
 
@@ -153,11 +154,13 @@
                 <!-- /card -->
 
                 <!-- SUBMIT  -->
-                <div class="form-group">
-                    <div class="checkbox">
-
+                <div class="row">
+                    <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-lg mt-3" style="margin:auto; width:100%;" id="submitBtn" name="submit">Send This Email</button>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto; width:100%;" id="submitBtn" name="submit">Send Spoofed Email</button>
+                    <div class="col-md-6">
+                    <a href="./rexords.php" class="btn btn-info btn-lg mt-3" style="margin:auto; width:100%;" id="submitBtn" name="submit">Show Records</a>
+                    </div>
                 </div>
 
             </fieldset>

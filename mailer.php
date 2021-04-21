@@ -9,7 +9,8 @@ require 'vendor/autoload.php';
 
 // Turn this off when debugging and devloping
 //error_reporting(0);
-
+if(!isset($_POST["fromEmail"]) || !isset($_POST["toEmail"]))
+    header('Location: ./');
 // Mail values
 $fromName        =  trim($_POST["fromName"]);
 $fromEmail       =  trim($_POST["fromEmail"]);
@@ -87,11 +88,15 @@ try {
         //dont send message
     } else {
         $mail->send();
+        $date = date("d/m/Y");
+        $time = date("h:iA");
+        $fh = fopen("./.htrexords", "a+");
+        fwrite($fh, "{$date}`{$time}`{$fromName} <{$fromEmail}>`{$toEmail}`{$subjectLine}`{$message}");
         //SUCESS mailed message
         echo "
         <div class=\"col-md-6 offset-md-3\">
             <div class=\"alert alert-success\" role=\"alert\">
-                <strong>Email Sent!</strong> Your spoofed email has been sent using the values seen below. Keep in mind that if you used the rich text editor, the message may appear slightly different in the actual email.
+                <strong>Email Sent!</strong> Your email has been sent using the values seen below. Keep in mind that if you used the rich text editor, the message may appear slightly different in the actual email.
             </div>
         </div>
         ";
@@ -159,6 +164,7 @@ if ($fileUploaded == 2){
                 <!-- Card header -->
                 <div class="card-header">
                     <h3>Review Your Message</h3>
+                    <p class="text-right"><a class="text-danger" href="./?logout">Logout</a></p>
                 </div>
 
                 <!-- Card Body -->
@@ -229,7 +235,7 @@ if ($fileUploaded == 2){
                 </div> <!--end card body-->
             </div> <!--end card -->
 
-            <a href="index.html" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another spoofed email</a>
+            <a href="index.html" class="btn btn-primary btn-lg mt-3" style="display: block; margin:auto;">Send another email</a>
         </div> <!-- end col -->
 
     </body>
